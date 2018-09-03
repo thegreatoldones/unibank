@@ -13,10 +13,11 @@
               <mat-select [id]="'fromAccount'"
                           placeholder="From Account"
                           formControlName="fromAccount">
-                <mat-option *ngFor="let opt of [1,2,3]"
-                            [value]="opt">{{opt}}
+                <mat-option *ngFor="let account of accounts"
+                            [value]="account">{{account}}
                 </mat-option>
               </mat-select>
+              <mat-error *ngIf="fromAccount.invalid && fromAccount.errors">Account is required</mat-error>
             </mat-form-field>
           </div>
           <div fxFlex="100">
@@ -34,7 +35,7 @@
           <div fxFlex="100">
             <mat-form-field fxFlex="100">
               <input matInput type="text" placeholder="Name And Surname" formControlName="nameAndSurname">
-              <mat-error *ngIf="name.errors ? name.errors.required : false">Name is required</mat-error>
+              <mat-error *ngIf="name.invalid && name.errors">Name is required</mat-error>
             </mat-form-field>
           </div>
           <div fxFlex="100">
@@ -56,10 +57,14 @@
           </div>
           <div fxFlex="100" fxLayout="row">
             <mat-form-field fxFlex="500">
-              <input matInput type="text" placeholder="Amount" formControlName="amount">
+              <input matInput type="number" placeholder="Amount" formControlName="amount">
+              <mat-error *ngIf="amount.invalid">
+                <span *ngIf="amount.errors.required">Amount is required</span>
+                <span *ngIf="amount.errors.min">Min amount is 100</span>
+              </mat-error>
             </mat-form-field>
             <mat-form-field fxFlex="50">
-              <input matInput [matDatepicker]="picker" placeholder="Choose a date" formControlName="data">
+              <input matInput [matDatepicker]="picker" placeholder="Choose a date" formControlName="date">
               <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
               <mat-datepicker #picker></mat-datepicker>
             </mat-form-field>
@@ -71,21 +76,27 @@
           </div>
         </div>
       </div>
-      <button mat-button type="submit" [disabled]="!transferForm.valid">Confirm payment</button>
+      <button mat-button [disabled]="!transferForm.valid" matStepperNext>Next</button>
     </form>
-    <button mat-button (click)="onClose()">Confirm later</button>
   </mat-step>
   <mat-step>
       <ng-template matStepLabel>Confirmation</ng-template>
+        <p>{{transferForm.value.account}}</p>
+        <p>{{transferForm.value.account}}</p>
+        <p>{{transferForm.value.nameAndSurname}}</p>
+        <p>{{transferForm.value.receiverAddress}}</p>
+        <p>{{transferForm.value.addressCd}}</p>
+        <p>{{transferForm.value.receiverAccount}}</p>
+        <p>{{transferForm.value.amount}}</p>
+        <p>{{transferForm.value.date}}</p>
         <button mat-button matStepperPrevious>Back</button>
-        <button mat-button matStepperNext>Next</button>
+        <button mat-button matStepperNext>Confirm payment</button>
   </mat-step>
   <mat-step>
     <ng-template matStepLabel>Finish</ng-template>
     You are now done.
     <div>
-      <button mat-button matStepperPrevious>Back</button>
-      <button mat-button (click)="stepper.reset()">Reset</button>
+      <button mat-button (click)="onClose()">Ok</button>
     </div>
   </mat-step>
 </mat-horizontal-stepper>

@@ -9,23 +9,25 @@ import { MatDialogRef } from '@angular/material';
 })
 export class MoneyTransferComponent implements OnInit {
   transferForm: FormGroup;
+  accounts;
   // TODO Need to add modal state to store & move all logic to actions/effects
   constructor(
     public dialogRef: MatDialogRef<MoneyTransferComponent>,
     private formBuilder: FormBuilder
-  ) {}
+  ) {
+    this.accounts = ['Account 1', 'Account 2', 'Account 3'];
+  }
 
   ngOnInit() {
-    // TODO Add validations
     this.transferForm = this.formBuilder.group({
       template: [''],
-      fromAccount: [''],
+      fromAccount: ['', Validators.required],
       nameAndSurname: ['', Validators.required],
-      receiverAddress: [''],
-      addressCd: [''],
-      receiverAccount: [''],
-      amount: [''],
-      data: [''],
+      receiverAddress: ['', Validators.required],
+      addressCd: ['', Validators.required],
+      receiverAccount: ['', Validators.required],
+      amount: ['', [Validators.required, Validators.min(100)]],
+      date: ['', Validators.required],
       title: ['']
     });
   }
@@ -42,5 +44,13 @@ export class MoneyTransferComponent implements OnInit {
   onClose(): void {
     this.dialogRef.close();
   }
-  get name() { return this.transferForm.get('nameAndSurname'); }
+  get name() {
+    return this.transferForm.get('nameAndSurname');
+  }
+  get fromAccount() {
+    return this.transferForm.get('fromAccount');
+  }
+  get amount() {
+    return this.transferForm.get('amount');
+  }
 }
