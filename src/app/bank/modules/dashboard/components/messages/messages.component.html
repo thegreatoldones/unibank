@@ -1,0 +1,41 @@
+<mat-card class="dashboard-module messages">
+  <mat-card-header>
+    <mat-card-title>Messages</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="data-loader-container" *ngIf="!stream || stream.loading">
+      <mat-spinner [diameter]="20"></mat-spinner>
+    </div>
+    <div *ngIf="stream && !stream.loading" class="messages-data" fxLayout="column">
+        <div *ngFor="let message of stream.data; let last = last"
+             [ngClass]="{ last: last }"
+             class="message"
+             fxFlex="100"
+             fxLayout="row">
+            <div class="message-author-pic">
+              <img src="{{message.pic}}">
+            </div>
+            <div class="message-content">
+              <div class="message-title-container">
+                <span class="message-title">
+                  {{message.title}}
+                </span>
+                <span class="message-author">
+                  {{message.author}}
+                </span>
+              </div>
+              <div class="message-text-container">
+                <span class="message-text">
+                  {{message.text}}
+                </span>
+              </div>
+            </div>
+        </div>
+    </div>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button>
+      View more
+    </button>
+  </mat-card-actions>
+</mat-card>

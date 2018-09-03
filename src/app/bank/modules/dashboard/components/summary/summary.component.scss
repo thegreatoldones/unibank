@@ -1,0 +1,47 @@
+@import '../../../../../themes/variables';
+
+.dashboard-module.summary {
+  mat-card-content {
+    height: 40vh;
+    margin-bottom: 0;
+    .data-loader-container {
+      padding: 16vh;
+      mat-spinner {
+        margin: auto;
+      }
+    }
+    .summary-balance {
+      .balance-label {
+        color: $grey_medium;
+        font-size: 13px;
+        display: block;
+        margin-bottom: 3px;
+      }
+      .balance-value-container {
+        .balance-marker {
+          width: 10px;
+          height: 10px;
+          display: inline-block;
+          background: $primary_color;
+          border-radius: 100%;
+          margin-bottom: 4px;
+          margin-right: 6px;
+        }
+        .balance-value {
+          font-size: 26px;
+        }
+      }
+    }
+  }
+  mat-card-actions {
+    text-align: right;
+    button.mat-button,
+    button.mat-primary {
+      border-radius: 40px !important;
+      box-shadow: none !important;;
+      ::ng-deep .mat-button-ripple {
+        border-radius: 40px !important;;
+      }
+    }
+  }
+}

@@ -1,0 +1,70 @@
+@import '../../../../../themes/variables';
+
+.dashboard-module.cards {
+  mat-card-header {
+    mat-form-field {
+      font-size: 15px;
+      font-weight: 500;
+      position: absolute;
+      right: 16px;
+      top: -2px;
+      ::ng-deep .mat-input-underline {
+        display: none;
+      }
+    }
+  }
+  mat-card-content {
+    height: 40vh;
+    margin-bottom: 0px;
+    .data-loader-container {
+      padding: 16vh;
+      mat-spinner {
+        margin: auto;
+      }
+    }
+    .card-data {
+      padding-top: 16px;
+      .card-info-container {
+        .card-info-item {
+          span {
+            width: 100px;
+            display: inline-block;
+            font-size: 13px;
+            font-weight: 500;
+            color: $grey_dark;
+          }
+          p {
+            font-size: 13px;
+            color: $grey_medium;
+            margin: 8px 0px;
+          }
+          p.card-owner {
+            font-size: 18px;
+            color: rgba(0, 0, 0, 0.87);
+            margin: 0px 16px 8px 0px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+          }
+        }
+      }
+      .card-image-container {
+        padding-top: 16px;
+        img {
+          width: auto;
+          max-width: 100%;
+        }
+      }
+    }
+  }
+  mat-card-actions {
+    text-align: right;
+    button.mat-button,
+    button.mat-primary {
+      border-radius: 40px !important;
+      box-shadow: none !important;;
+      ::ng-deep .mat-button-ripple {
+        border-radius: 40px !important;;
+      }
+    }
+  }
+}

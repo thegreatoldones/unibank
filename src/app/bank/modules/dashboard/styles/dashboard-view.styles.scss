@@ -1,0 +1,32 @@
+@import '../../../../themes/variables';
+
+.dashboard {
+  padding: 2vw;
+  .dashboard-header {
+    padding: 0px 2vw;
+    .dashboard-header_title-container {
+      h3 {
+        color: $primary_color;
+        font-size: 18px;
+      }
+    }
+    .dashboard-header_action-container {
+      text-align: right;
+      button {
+        border-radius: 40px;
+        box-shadow: none;
+        ::ng-deep .mat-button-ripple {
+          border-radius: 40px;
+        }
+        mat-icon {
+          line-height: 0.95;
+        }
+      }
+    }
+  }
+  .dashboard-modules {
+    .dashboard-module-container {
+      margin: 2vw;
+    }
+  }
+}

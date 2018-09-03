@@ -1,0 +1,57 @@
+@import '../../themes/variables.scss';
+
+.auth-root {
+  .auth-root_content {
+    .auth-form {
+      padding: 6vh 6vw 0 6vw;
+      .auth-logo {
+        margin-bottom: 10vh;
+        img {
+          width: 8vw;
+          max-width: 120px;
+          min-width: 80px;
+          margin-top: -3vh;
+          margin-left: -5vw;
+        }
+      }
+      .auth-demo {
+        margin-top: 3vh;
+        text-align: center;
+      }
+      .auth-info {
+        margin-top: 12vh;
+        h5 {
+          color: $warning_color;
+        }
+        p {
+          color: $grey_medium;
+        }
+      }
+      ::ng-deep {
+        .form-field-container {
+          margin-bottom: 5vh;
+          .mat-form-field-underline {
+            background-color: $grey_light;
+          }
+        }
+      }
+    }
+    .auth-hero {
+      background-image: url('/assets/auth-hero.jpg');
+      background-size: cover;
+      background-position: bottom left;
+    }
+  }
+}
+
+@media (max-width: 969px) {
+  .auth-root {
+    .auth-root_content {
+      .auth-form {
+        .auth-logo {
+          text-align: center;
+        }
+      }
+    }
+  }
+}

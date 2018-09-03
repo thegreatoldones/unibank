@@ -1,0 +1,28 @@
+@import '../../../themes/variables.scss';
+
+.money-transfer-toolbar {
+  height: 80px;
+  background: #fff;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  h3 {
+    color: $primary_color;
+    font-size: 18px;
+  }
+}
+.money-transfer-content {
+  background: #fff;
+  ::ng-deep .mat-horizontal-stepper-header-container {
+    width: 50vw;
+    margin: auto;
+  }
+  ::ng-deep .mat-horizontal-content-container {
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
+    padding: 0px;
+    .money-transfer-fields-column {
+      padding: 50px;
+    }
+  }
+  ::ng-deep .mat-form-field-underline {
+    background-color: $grey_light;
+  }
+}

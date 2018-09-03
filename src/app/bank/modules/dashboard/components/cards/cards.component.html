@@ -1,0 +1,70 @@
+<mat-card class="dashboard-module cards">
+  <mat-card-header>
+    <mat-card-title>Your cards</mat-card-title>
+    <mat-form-field>
+      <mat-select [(ngModel)]="selectedCard">
+        <mat-option *ngFor="let card of stream.data"
+                    [value]="card">
+          {{card.number}}
+          <!--{{card.number | card }}-->
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="data-loader-container" *ngIf="!stream || stream.loading || !selectedCard">
+      <mat-spinner [diameter]="20"></mat-spinner>
+    </div>
+    <div *ngIf="stream && !stream.loading && selectedCard" fxFlex="100" fxLayout="row" class="card-data">
+      <div class="card-info-container" fxFlex="60" fxLayout="column">
+        <div class="card-info-item">
+          <p class="card-owner">{{selectedCard.owner}}</p>
+        </div>
+        <div class="card-info-item">
+          <p>
+            <span>Card</span>
+            {{selectedCard.card}}
+          </p>
+        </div>
+        <div class="card-info-item">
+          <p>
+            <span>Account</span>
+            {{selectedCard.account}}
+          </p>
+        </div>
+        <div class="card-info-item">
+          <p>
+            <span>Card number</span>
+            {{selectedCard.number}}
+          </p>
+        </div>
+        <div class="card-info-item">
+          <p>
+            <span>Expire date</span>
+            {{selectedCard.expire}}
+          </p>
+        </div>
+        <div class="card-info-item">
+          <p>
+            <span>Status</span>
+            {{selectedCard.status}}
+          </p>
+        </div>
+      </div>
+      <div class="card-image-container" fxFlex="40">
+         <img src="{{selectedCard.image}}">
+      </div>
+    </div>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button
+            (click)="onWithholdCard()">
+      Withhold card
+    </button>
+    <button mat-raised-button
+            color="primary"
+            (click)="onChangePin()">
+      Change pin
+    </button>
+  </mat-card-actions>
+</mat-card>

@@ -1,0 +1,25 @@
+<div id="sign-in">
+  <div class="sign-in_content">
+    <form class="sign-in-form" [formGroup]="form" (ngSubmit)="submit()">
+      <div class="form-fields-container" fxLayout="column">
+        <mat-form-field class="form-field-container">
+          <input type="text" matInput placeholder="Username" formControlName="username">
+          <!-- TODO Need to improve error messages logic -->
+          <mat-error *ngIf="form.controls.username.invalid">Required</mat-error>
+        </mat-form-field>
+        <mat-form-field class="form-field-container">
+          <input type="password" matInput placeholder="Password" formControlName="password">
+          <mat-error *ngIf="form.controls.password.invalid">4 characters minimum</mat-error>
+        </mat-form-field>
+        <p *ngIf="errorMessage" class="loginError mat-body">
+          {{ errorMessage }}
+        </p>
+        <div class="form-submit" fxLayoutAlign="space-between center">
+          <!--<button mat-button routerLink="/recover">Can't log in?</button>-->
+          <button mat-raised-button color="primary" type="submit">Sign in</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+

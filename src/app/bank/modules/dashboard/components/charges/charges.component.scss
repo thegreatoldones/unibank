@@ -1,0 +1,40 @@
+@import '../../../../../themes/variables';
+
+.dashboard-module.charges {
+  mat-card-header {
+    mat-form-field {
+      font-size: 15px;
+      font-weight: 500;
+      position: absolute;
+      right: 16px;
+      top: -2px;
+      max-width: 100px;
+      ::ng-deep .mat-input-underline {
+        display: none;
+      }
+    }
+  }
+  mat-card-content {
+    padding: 0px;
+    margin: 0px -16px;
+    height: 60vh;
+    overflow: auto;
+    .data-loader-container {
+      width: 100%;
+      padding: 16vh;
+      mat-spinner {
+        margin: auto;
+      }
+    }
+  }
+  mat-card-actions {
+    text-align: right;
+    button.mat-button {
+      border-radius: 40px !important;
+      box-shadow: none !important;;
+      ::ng-deep .mat-button-ripple {
+        border-radius: 40px !important;;
+      }
+    }
+  }
+}

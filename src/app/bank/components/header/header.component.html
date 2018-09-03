@@ -1,0 +1,36 @@
+<mat-toolbar class="bank-header" fxLayout="row">
+  <div class="bank-header_left" fxFlex="50" fxLayout="row">
+    <div class="header-logo-container">
+      <img class="logo" src="assets/unibank.jpg">
+    </div>
+    <div class="header-search-container">
+      <mat-form-field [floatLabel]="'never'">
+        <mat-icon matPrefix>search</mat-icon>
+        <input matInput placeholder="Search">
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="bank-header_right" fxFlex="50">
+    <div class="header-menu-container" fxFlex="100" fxLayout="row" fxLayoutAlign="end center" fxHide.sm="true" fxHide.xs="true">
+      <div class="money-transfer-container">
+        <button mat-raised-button color="primary" class="money-transfer" (click)="openModal()">Money transfer</button>
+      </div>
+      <div class="user-name-container">
+        <span>Hello,</span><span class="user-name"> {{currentUser}} </span>
+      </div>
+      <div class="notifications-container">
+        <button mat-icon-button class="notifications">
+          <mat-icon aria-label="message">message</mat-icon>
+        </button>
+      </div>
+      <div class="logout-container">
+        <button mat-button class="logout">Logout</button>
+      </div>
+    </div>
+    <div class="header-menu-container mobile" fxFlex="100" fxLayoutAlign="end center" fxLayout="row" fxHide.md="true" fxHide.lg="true">
+      <button mat-icon-button class="mobile-top-menu">
+        <mat-icon aria-label="message">menu</mat-icon>
+      </button>
+    </div>
+  </div>
+</mat-toolbar>

@@ -1,0 +1,24 @@
+<div [formGroup]="form" [ngSwitch]="field.controlType">
+  <mat-form-field>
+    <input *ngSwitchCase="'text'"
+           matInput
+           [id]="field.key"
+           placeholder="{{field.label}}"
+           [formControlName]="field.key"
+           [type]="field.type">
+
+    <mat-select *ngSwitchCase="'select-dropdown'"
+                 [id]="field.key"
+                 placeholder="{{field.label}}"
+                 [formControlName]="field.key">
+      <mat-option *ngFor="let opt of field.options"
+                  [value]="opt.key">{{opt.value}}
+      </mat-option>
+    </mat-select>
+    <mat-error class="errorMessage" *ngIf="!isValid">
+      <!-- TODO Need to show list of error with helpers-->
+      {{field.label}} invalid
+    </mat-error>
+  </mat-form-field>
+  <!--<label [attr.for]="field.key">{{field.label}}</label>-->
+</div>

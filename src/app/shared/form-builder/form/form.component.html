@@ -1,0 +1,12 @@
+<div>
+  <form (ngSubmit)="onSubmit()" [formGroup]="form">
+
+    <div *ngFor="let field of fields" class="form-row">
+      <app-form-field [field]="field" [form]="form"></app-form-field>
+    </div>
+
+    <div class="form-row">
+      <button mat-button type="submit" [disabled]="!form.valid">Save</button>
+    </div>
+  </form>
+</div>

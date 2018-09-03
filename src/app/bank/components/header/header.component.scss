@@ -1,0 +1,73 @@
+@import '../../../themes/variables.scss';
+
+.bank-header {
+  height: 80px;
+  background: #fff;
+  padding: 0;
+  .bank-header_left {
+    .header-logo-container {
+      .logo {
+        width: 70px;
+        padding: 5px;
+        display: block;
+      }
+    }
+    .header-search-container {
+      font-size: 14px;
+      mat-form-field {
+        margin: 15px 12px 8px 48px;
+        color: $grey_dark;
+        mat-icon {
+          color: rgba(0,0,0,0.4);
+          margin-right: 8px;
+          vertical-align: middle;
+        }
+        ::ng-deep .mat-form-field-underline {
+          background-color: $grey_light !important;
+        }
+      }
+      mat-form-field.mat-focused {
+        mat-icon {
+          color: $primary_color;
+        }
+      }
+    }
+  }
+  .bank-header_right {
+    .header-menu-container {
+      float: right;
+      .user-name-container,
+      .notifications-container,
+      .mobile-top-menu {
+        margin: 0px 24px;
+      }
+      .money-transfer-container,
+      .logout-container {
+        margin: 3px 24px;
+        button {
+          border-radius: 40px;
+          box-shadow: none;
+          ::ng-deep .mat-button-ripple {
+            border-radius: 40px;
+          }
+        }
+      }
+      .user-name-container {
+        padding: 5px 0px;
+        font-size: 14px;
+        color: $grey_medium;
+        .user-name {
+          color: $grey_dark;
+        }
+      }
+      .notifications-container {
+        mat-icon {
+          color: $grey_medium;
+        }
+      }
+      .logout-container {
+        color: $grey_medium;
+      }
+    }
+  }
+}

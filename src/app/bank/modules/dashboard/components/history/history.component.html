@@ -1,0 +1,67 @@
+<mat-card class="dashboard-module history">
+  <mat-card-header>
+    <mat-card-title>History</mat-card-title>
+    <mat-form-field>
+      <mat-select [(ngModel)]="selectedHistoryRange"
+                  (selectionChange)="onRangeChanged()">
+        <mat-option *ngFor="let range of historyRanges"
+                    [value]="range">
+          {{range}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="data-loader-container" *ngIf="!stream || stream.loading">
+      <mat-spinner [diameter]="20"></mat-spinner>
+    </div>
+    <div *ngIf="stream && !stream.loading" class="history-data" fxLayout="column">
+      <div *ngFor="let historyItem of stream.data; let last = last"
+           [ngClass]="{ last: last }"
+           class="history-item"
+           fxFlex="100"
+           fxLayout="row">
+        <div class="history-item-merchant-pic">
+          <img src="{{historyItem.image}}">
+        </div>
+        <div class="history-item-content">
+          <div class="history-item-amount-container">
+                <span class="history-item-amount">
+                  <mat-icon *ngIf="historyItem.status === 'up'"
+                            class="amount-up"
+                            aria-label="status">call_made</mat-icon>
+                  <mat-icon *ngIf="historyItem.status === 'down'"
+                            class="amount-down"
+                            aria-label="status">call_received</mat-icon>
+                  {{historyItem.amount}}
+                  <span>
+                    {{historyItem.currency}}
+                  </span>
+                </span>
+                <span class="history-item-time">
+                  {{historyItem.time}}
+                </span>
+          </div>
+          <div class="history-item-info-container">
+              <div class="history-item-merchant-container">
+                <span class="history-item-merchant">
+                  {{historyItem.subject}} - {{historyItem.merchant}}
+                </span>
+              </div>
+              <div class="history-item-geo-container">
+                <mat-icon aria-label="geo">place</mat-icon>
+                <span class="history-item-geo">
+                  {{historyItem.geo}}
+                </span>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button>
+      View more
+    </button>
+  </mat-card-actions>
+</mat-card>
