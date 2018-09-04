@@ -6,7 +6,7 @@
   <mat-step [stepControl]="transferForm">
     <ng-template matStepLabel>Information</ng-template>
     <form [formGroup]="transferForm" (ngSubmit)="onSubmit()" fxLayout="column">
-      <div class="money-transfer-content" fxFlex="100" fxLayout="row">
+      <div class="money-transfer-content information" fxFlex="100" fxLayout="row">
         <div fxFlex="50" class="money-transfer-fields-column" fxLayout="column">
           <div fxFlex="100">
             <mat-form-field fxFlex="100">
@@ -85,33 +85,33 @@
   </mat-step>
   <mat-step>
       <ng-template matStepLabel>Confirmation</ng-template>
-        <div class="money-transfer-content" fxFlex="100" fxLayout="column">
+        <div class="money-transfer-content confirmation" fxFlex="100" fxLayout="column">
           <div>
-            <span>From account</span>
-            <span>{{transferForm.value.account}}</span>
+            <span class="label">From account</span>
+            <span>{{transferForm.value.fromAccount}}</span>
           </div>
           <div>
-            <span>Name and surname</span>
+            <span class="label">Name and surname</span>
             <span>{{transferForm.value.nameAndSurname}}</span>
           </div>
           <div>
-            <span>Receiver adrdess</span>
+            <span class="label">Receiver adrdess</span>
             <span>{{transferForm.value.receiverAddress}}</span>
           </div>
           <div>
-            <span>Address C.D.</span>
+            <span class="label">Address C.D.</span>
             <span>{{transferForm.value.addressCd}}</span>
           </div>
           <div>
-            <span>Receiver account</span>
+            <span class="label">Receiver account</span>
             <span>{{transferForm.value.receiverAccount}}</span>
           </div>
           <div>
-            <span>Amount</span>
+            <span class="label">Amount</span>
             <span>{{transferForm.value.amount}}</span>
           </div>
           <div>
-            <span>Date</span>
+            <span class="label">Date</span>
             <span>{{transferForm.value.date}}</span>
           </div>
         </div>

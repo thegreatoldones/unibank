@@ -26,3 +26,17 @@
     background-color: $grey_light;
   }
 }
+.money-transfer-content.confirmation {
+  div {
+    font-size: 13px;
+    color: $grey_medium;
+    margin: 8px 0px;
+    span.label {
+      width: 200px;
+      display: inline-block;
+      font-size: 13px;
+      font-weight: 500;
+      color: $grey_dark;
+    }
+  }
+}
