@@ -17,7 +17,7 @@ export class HeaderComponent implements OnInit {
     this.modal.open(MoneyTransferComponent, {
       width: '80vw',
       height: '80vh',
-      data: {test: '43434'}
+      data: {test: 'test'}
     });
   }
 

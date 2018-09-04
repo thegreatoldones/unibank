@@ -26,8 +26,8 @@
                           placeholder="Transfer template"
                           formControlName="template"
                           (selectionChange)="templateChanged(transferForm.get('template').value)">
-                <mat-option *ngFor="let opt of [{amount: 200, title: 'Template 1'}, {amount: 300, title: 'Template 2'}, {amount: 400, title: 'Template 3'}]"
-                            [value]="opt">{{opt.title}}
+                <mat-option *ngFor="let template of templates"
+                            [value]="template">{{template.title}}
                 </mat-option>
               </mat-select>
             </mat-form-field>
@@ -41,11 +41,13 @@
           <div fxFlex="100">
             <mat-form-field fxFlex="100">
               <input matInput type="text" placeholder="Receiver address" formControlName="receiverAddress">
+              <mat-error *ngIf="receiverAddress.invalid && receiverAddress.errors">Receiver address is required</mat-error>
             </mat-form-field>
           </div>
           <div fxFlex="100">
             <mat-form-field fxFlex="100">
               <input matInput type="text" placeholder="Address C. D." formControlName="addressCd">
+              <mat-error *ngIf="addressCd.invalid && addressCd.errors">Address is required</mat-error>
             </mat-form-field>
           </div>
         </div>
@@ -53,6 +55,7 @@
           <div fxFlex="100">
             <mat-form-field fxFlex="100">
               <input matInput type="text" placeholder="Receiver account" formControlName="receiverAccount">
+              <mat-error *ngIf="receiverAccount.invalid && receiverAccount.errors">Receiver account is required</mat-error>
             </mat-form-field>
           </div>
           <div fxFlex="100" fxLayout="row">
@@ -67,6 +70,7 @@
               <input matInput [matDatepicker]="picker" placeholder="Choose a date" formControlName="date">
               <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
               <mat-datepicker #picker></mat-datepicker>
+              <mat-error *ngIf="date.invalid && date.errors">Date is required</mat-error>
             </mat-form-field>
           </div>
           <div fxFlex="100">
@@ -81,14 +85,36 @@
   </mat-step>
   <mat-step>
       <ng-template matStepLabel>Confirmation</ng-template>
-        <p>{{transferForm.value.account}}</p>
-        <p>{{transferForm.value.account}}</p>
-        <p>{{transferForm.value.nameAndSurname}}</p>
-        <p>{{transferForm.value.receiverAddress}}</p>
-        <p>{{transferForm.value.addressCd}}</p>
-        <p>{{transferForm.value.receiverAccount}}</p>
-        <p>{{transferForm.value.amount}}</p>
-        <p>{{transferForm.value.date}}</p>
+        <div class="money-transfer-content" fxFlex="100" fxLayout="column">
+          <div>
+            <span>From account</span>
+            <span>{{transferForm.value.account}}</span>
+          </div>
+          <div>
+            <span>Name and surname</span>
+            <span>{{transferForm.value.nameAndSurname}}</span>
+          </div>
+          <div>
+            <span>Receiver adrdess</span>
+            <span>{{transferForm.value.receiverAddress}}</span>
+          </div>
+          <div>
+            <span>Address C.D.</span>
+            <span>{{transferForm.value.addressCd}}</span>
+          </div>
+          <div>
+            <span>Receiver account</span>
+            <span>{{transferForm.value.receiverAccount}}</span>
+          </div>
+          <div>
+            <span>Amount</span>
+            <span>{{transferForm.value.amount}}</span>
+          </div>
+          <div>
+            <span>Date</span>
+            <span>{{transferForm.value.date}}</span>
+          </div>
+        </div>
         <button mat-button matStepperPrevious>Back</button>
         <button mat-button matStepperNext>Confirm payment</button>
   </mat-step>

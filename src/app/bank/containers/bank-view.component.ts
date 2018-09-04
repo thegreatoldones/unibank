@@ -37,56 +37,9 @@ import { Component, OnInit } from '@angular/core';
 export class BankViewComponent implements OnInit {
   sidebar;
   constructor() {
-    this.buildSidebar({});
+    this.buildSidebar();
   }
-  private buildSidebar(user) {
-    // Permissions check example
-    // this.sidebar = _.filter([
-    //   {
-    //     label: 'Dashboard',
-    //     icon: 'home',
-    //     link: '/bank/dashboard',
-    //     permission: 'bank_dashboard'
-    //   },
-    //   {
-    //     label: 'Accounts',
-    //     icon: 'account_balance_wallet',
-    //     link: '/bank/accounts',
-    //     permission: 'bank_accounts'
-    //   },
-    //   {
-    //     label: 'Savings',
-    //     icon: 'attach_money',
-    //     link: '#',
-    //     permission: 'bank_savings'
-    //   },
-    //   {
-    //     label: 'Cards',
-    //     icon: 'credit_card',
-    //     link: '#',
-    //     permission: 'bank_cards'
-    //   },
-    //   {
-    //     label: 'Loans',
-    //     icon: 'receipt',
-    //     link: '#',
-    //     permission: 'bank_loans'
-    //   },
-    //   {
-    //     label: 'Investments',
-    //     icon: 'show_chart',
-    //     link: '#',
-    //     permission: 'bank_investments'
-    //   },
-    //   {
-    //     label: 'Contracts',
-    //     icon: 'insert_drive_file',
-    //     link: '#',
-    //     permission: 'bank_contracts'
-    //   }
-    // ], function (item) {
-    //   return user.permissions.indexOf(item.permission) !== -1;
-    // });
+  private buildSidebar() {
     this.sidebar = [
       {
         label: 'Dashboard',
