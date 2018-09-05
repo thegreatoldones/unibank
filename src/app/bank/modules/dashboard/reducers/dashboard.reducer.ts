@@ -1,4 +1,4 @@
-import { DashboardActionsUnion, DashboardActionTypes } from '../actions/dasboard.actions';
+import { DashboardActionsUnion, DashboardActionTypes } from '../actions/dashboard.actions';
 
 export interface State {
   summary: any;

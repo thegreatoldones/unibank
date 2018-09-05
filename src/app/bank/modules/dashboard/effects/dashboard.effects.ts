@@ -16,7 +16,7 @@ import {
   ChargesLoadSuccess,
   CardsLoad,
   CardsLoadSuccess
-} from '../actions/dasboard.actions';
+} from '../actions/dashboard.actions';
 import { HistoryService } from '../components/history/history.service';
 import { MessagesService } from '../components/messages/messages.service';
 import { ChargesService } from '../components/charges/charges.service';

@@ -14,7 +14,6 @@ import { MessagesService } from './components/messages/messages.service';
 import { HistoryComponent } from './components/history/history.component';
 import { ChargesComponent } from './components/charges/charges.component';
 import { SummaryComponent } from './components/summary/summary.component';
-import { AccountsViewComponent } from '../accounts/accounts-view.component';
 import { MessagesComponent } from './components/messages/messages.component';
 import { CardsComponent } from './components/cards/cards.component';
 import { DashboardViewComponent } from './containers/dashboard-view.component';
@@ -24,7 +23,6 @@ import { DashboardViewComponent } from './containers/dashboard-view.component';
   imports: [CommonModule, FormsModule, MaterialModule, NgxEchartsModule],
   declarations: [
     DashboardViewComponent,
-    AccountsViewComponent,
     HistoryComponent,
     CardsComponent,
     ChargesComponent,

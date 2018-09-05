@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Store, select } from '@ngrx/store';
 import * as fromBank from '../../../redusers/bank.reduser';
-import * as DashboardActions from '../actions/dasboard.actions';
+import * as DashboardActions from '../actions/dashboard.actions';
 import { Observable } from 'rxjs';
 
 @Component({
