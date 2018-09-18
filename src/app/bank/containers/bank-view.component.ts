@@ -44,7 +44,7 @@ export class BankViewComponent implements OnInit {
       {
         label: 'Dashboard',
         icon: 'home',
-        link: '/bank',
+        link: '/bank/dashboard',
         permission: 'bank_dashboard'
       },
       {

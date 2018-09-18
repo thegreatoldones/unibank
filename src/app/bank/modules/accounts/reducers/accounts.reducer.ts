@@ -39,8 +39,7 @@ export function reducer(state = initialState, action: AccountsActionsUnion): Sta
         ...state,
         accounts: {
           loading: false,
-          data: [{label: 'Account label'}, {label: 'Account 2 label'}, {label: 'Account 3 label'}]
-          // data: action.payload.map(item => item)
+          data: action.payload.map(item => item)
         }
       };
     }

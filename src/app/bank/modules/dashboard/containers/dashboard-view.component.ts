@@ -5,7 +5,7 @@ import * as DashboardActions from '../actions/dashboard.actions';
 import { Observable } from 'rxjs';
 
 @Component({
-  selector: 'app-dashboard',
+  selector: 'app-dashboard-module',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <div class="dashboard" fxFlex="100" fxLayout="row">

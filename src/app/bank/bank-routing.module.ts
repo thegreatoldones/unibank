@@ -10,8 +10,8 @@ export const routes: Routes = [
     component: BankViewComponent,
     children: [
       {
-        path: '',
-        component: DashboardViewComponent
+        path: 'dashboard',
+        component: DashboardViewComponent,
       },
       {
         path: 'accounts',

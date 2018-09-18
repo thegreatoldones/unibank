@@ -1,0 +1,8 @@
+<div class="data-loader-container" *ngIf="!stream || stream.loading">
+  <mat-spinner [diameter]="20"></mat-spinner>
+</div>
+<div *ngIf="stream && !stream.loading" class="history-data" fxLayout="column">
+  <app-account *ngFor="let account of stream.data"
+               [account]="account">
+  </app-account>
+</div>

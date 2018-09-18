@@ -10,18 +10,23 @@ import {
   OffersLoad,
   OffersLoadSuccess
 } from '../actions/accounts.actions';
+import { AccountsService } from '../components/accounts/accounts.service';
 
 // TODO Add effects for load errors
 @Injectable()
 export class AccountsEffects {
   constructor(
     private actions$: Actions,
-    private router: Router,
+    private accountsService: AccountsService
   ) {}
   @Effect()
   accountsLoad$ = this.actions$.pipe(
     ofType<AccountsLoad>(AccountsActionTypes.AccountsLoad),
-    map(() => new AccountsLoadSuccess([]))
+    switchMap(() =>
+      this.accountsService
+        .getAccounts()
+        .pipe(map(accounts => new AccountsLoadSuccess(accounts)))
+    )
   );
   @Effect()
   offersLoad$ = this.actions$.pipe(
